@@ -12,3 +12,23 @@ $green: #034732;
 $turquoise: #87CCB3;
 $brown: #4A1100;
 
+//Sanitize
+* {
+    padding: 0;
+    margin: 0;
+    font-family: 'Quicksand', sans-serif;
+}
+
+//Other common style
+html {
+    scroll-behavior: smooth;
+}
+
+a {
+    text-decoration: none;
+}
+
+li {
+    list-style-type: none;
+}
+

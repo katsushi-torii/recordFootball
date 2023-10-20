@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <h1>Record Football</h1>
+        <nav>
+            <a href="add" class="addMatch">追加</a>
+        </nav>
+    </header>
+    <main>
+        <section class="filter">
+            <form action="GET">
+                <aside>
+                    <input type="text" name="search" id="search" placeholder="キーワード検索">
+                </aside>
+                <aside>
+                    <label for="competetion">大会形式</label>
+                    <select name="competetion" id="competetion">
+                        <option value="premier">Premier League</option>
+                        <option value="laLiga">La Liga</option>
+                    </select>
+                </aside>
+                <aside>
+                    <select name="team" id="team">
+                        <option value="arsenal">Arsenal</option>
+                        <option value="liverpool">Liverpool</option>
+                    </select>
+                </aside>
+                <input type="submit" value="検索">
+            </form>
+            <ul>
+                <li><a href="">日付↓</a></li>
+                <li><a href="">日付↑</a></li>
+                <li><a href="">評価↓</a></li>
+                <li><a href="">評価↑</a></li>
+            </ul>
+        </section>
+        <section class="list">
+            <ul>
+                <li>
+                    <article>
+                        <aside>
+                            <span>プレミアリーグ</span>
+                            <span>第13節</span>
+                            <span>2020/2/22</span>
+                        </aside>
+                        <aside>
+                            <span>アーセナル</span>
+                            <span>2</span>
+                            <span>-</span>
+                            <span>0</span>
+                            <span>トッテナム</span>
+                        </aside>
+                    </article>
+                    <section>
+                        <span>4/5</span>
+                        <aside>
+                            <a href="edit">編集</a>
+                            <a href="delete">削除</a>
+                        </aside>
+                    </section>
+                </li>
+            </ul>
+        </section>
+    </main>
+</body>
+</html>
