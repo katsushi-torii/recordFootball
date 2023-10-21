@@ -1,0 +1,51 @@
+@media (min-width: $mobileScreen) {
+    .home {
+        padding: 3vh;
+        background-color: $green;
+    }
+    .filter {
+        display: none;
+    }
+    .list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 1vh;
+        li {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+            border: 5px solid $brown;
+            border-radius: 10px;
+            background-color: $turquoise;
+            padding: 3%;
+        }
+        article {
+            display: flex;
+            flex-direction: column;
+            aside {
+                display: flex;
+                justify-content: space-around;
+            }
+        }
+        section {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            aside {
+                display: flex;
+                width: 40%;
+                justify-content: space-around;
+            }
+            a {
+                background-color: $green;
+                color: whitesmoke;
+                padding: 3%;
+                border-radius: 5px;
+                border: 1px solid whitesmoke;
+            }
+        }
+        .star {
+            color: yellow;
+        }
+    }
+}
