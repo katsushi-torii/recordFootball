@@ -4,7 +4,8 @@
         color: $brown;
         text-align: center;
         padding: 1vh 5vh 1vh 5vh;
-        .addMatch {
+        border-bottom: 3px solid black;
+        .addMatch, .search {
             display: none;
         }
     }

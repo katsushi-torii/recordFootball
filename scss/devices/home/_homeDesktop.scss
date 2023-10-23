@@ -1,0 +1,48 @@
+@media (min-width : $desktopScreen){
+    .home {
+        flex-direction: row;
+        justify-content: center;
+        > article {
+            width: 60%;
+            max-width: 720px;
+        }
+    }
+    .filter {
+        width: 40%;
+        height: 100%;
+        max-width: 480px;
+        form {
+            width: 80%;
+            row-gap: 3vh;
+            font-size: 20px;
+        }
+        input, select {
+            font-size: 16px;
+        }
+    }
+    .order {
+        padding-top: 3vh;
+        li {
+            padding: 1%;
+        }
+    }
+    .list {
+        li {
+            width: 80%;
+            flex-direction: row;
+            padding: 3% 0;
+            align-items: center;
+        }
+        article {
+            width: 75%;
+            row-gap: 1vh;
+        }
+        section {
+            width: 25%;
+            border-left: 2px solid $brown;
+            aside {
+                flex-direction: column;
+            }
+        }
+    }
+}

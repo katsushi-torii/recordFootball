@@ -1,15 +1,62 @@
 @media (min-width: $mobileScreen) {
     .home {
-        padding: 3vh;
+        display: flex;
+        flex-direction: column;
+        row-gap: 3vh;
+        padding-bottom: 3vh;
         background-color: $green;
+        > article {
+            display: flex;
+            flex-direction: column;
+            row-gap: 3vh;
+        }
     }
     .filter {
-        display: none;
+        display: flex;
+        flex-direction: column;
+        > article {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: $turquoise;
+            width: 100%;
+            button {
+                border: none;
+                background-color: $turquoise;
+                width: 5vh;
+                height: 5vh;
+                align-self: flex-end;
+            }
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            row-gap: 1vh;
+            width: 80%;
+            padding-bottom: 3vh;
+            > aside {
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+    .order {
+        display: flex;
+        justify-content: space-around;
+        li {
+            background-color: $turquoise;
+            padding: 2%;
+            border-radius: 10px;
+        }
+        a {
+            color: black;
+        }
     }
     .list {
         display: flex;
         flex-direction: column;
         row-gap: 1vh;
+        padding: 0 3vh;
         li {
             display: flex;
             flex-direction: column;
@@ -42,6 +89,7 @@
                 padding: 3%;
                 border-radius: 5px;
                 border: 1px solid whitesmoke;
+                text-align: center;
             }
         }
         .star {
