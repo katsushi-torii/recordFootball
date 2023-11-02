@@ -81,63 +81,49 @@
             $htmlOrder = '
             <article>
                 <ul class="order">
-                    <li><a href="">日付↓</a></li>
-                    <li><a href="">日付↑</a></li>
-                    <li><a href="">評価↓</a></li>
-                    <li><a href="">評価↑</a></li>
+                    <li><a href="?sortBy=desc">日付↓</a></li>
+                    <li><a href="./">日付↑</a></li>
+                    <li><a href="?sortBy=starDesc">評価↓</a></li>
+                    <li><a href="?sortBy=star">評価↑</a></li>
                 </ul>
             ';
             return $htmlOrder;
         }
 
-        static function list(){
-            $htmlList = '
-            <ul class="list">
-                <li>
-                    <article>
-                        <aside>
-                            <strong>プレミアリーグ</strong>
-                            <strong>第13節</strong>
-                            <strong>2020/2/22</strong>
-                        </aside>
-                        <aside>
-                            <strong>アーセナル</strong>
-                            <strong>2 - 0</strong>
-                            <strong>トッテナム</strong>
-                        </aside>
-                    </article>
-                    <section>
-                        <strong class="star">4/5</strong>
-                        <aside>
-                            <a href="edit">編集</a>
-                            <a href="delete">削除</a>
-                        </aside>
-                    </section>
-                </li>
-                <li>
-                    <article>
-                        <aside>
-                            <strong>プレミアリーグ</strong>
-                            <strong>第13節</strong>
-                            <strong>2020/2/22</strong>
-                        </aside>
-                        <aside>
-                            <strong>アーセナル</strong>
-                            <strong>2 - 0</strong>
-                            <strong>トッテナム</strong>
-                        </aside>
-                    </article>
-                    <section>
-                        <strong class="star">4/5</strong>
-                        <aside>
-                            <a href="edit">編集</a>
-                            <a href="delete">削除</a>
-                        </aside>
-                    </section>
-                </li>
-            </ul>
-            ';
+        static function matchList(array $matchList){
+            $htmlList = '<ul class="list">';
+            foreach($matchList as $match){
+                $htmlList .= self::matchRow($match);
+            }
+            $htmlList .= '</ul>';
             return $htmlList;
+        }
+
+        static function matchRow($match){
+            $htmlRow = '
+            <li>
+                <article>
+                    <aside>
+                        <strong>'.$match->competition.'</strong>
+                        <strong>'.$match->leg.'</strong>
+                        <strong>'.$match->matchDate.'</strong>
+                    </aside>
+                    <aside>
+                        <strong>'.$match->teamA.'</strong>
+                        <strong>'.$match->scoreA.' - '.$match->scoreB.'</strong>
+                        <strong>'.$match->teamB.'</strong>
+                    </aside>
+                </article>
+                <section>
+                    <strong class="star">'.$match->star.'/5</strong>
+                    <aside>
+                        <a href="edit">編集</a>
+                        <a href="delete">削除</a>
+                    </aside>
+                </section>
+            </li>
+            ';
+            return $htmlRow;
         }
 
         static function pageEnd(){

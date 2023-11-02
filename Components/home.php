@@ -8,18 +8,25 @@ require_once("../class/converter/MatchConverter.class.php");
 require_once("../class/html/Header.class.php");
 require_once("../class/html/Home.class.php");
 
-$test = MatchDAO::startDb();
+MatchDAO::startDb();
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: GET,POST,HEAD,OPTIONS,PUT,DELETE");
 // header('Content-Type: application/json; charset=utf-8');
 
+$matchList = MatchConverter::convertMatch(
+    MatchDAO::getAllMatches()
+);
 
-// echo json_encode(
-//     MatchConverter::convertMatch(
-//         MatchDAO::getAllMatches()
-//     )
-// );
+$matchListDesc = MatchConverter::convertMatch(
+    MatchDAO::getAllMatchesDesc()
+);
+$matchListStar = MatchConverter::convertMatch(
+    MatchDAO::getAllMatchesStar()
+);
+$matchListStarDesc = MatchConverter::convertMatch(
+    MatchDAO::getAllMatchesStarDesc()
+);
 
 echo Home::pageHead();
 echo Header::header();
@@ -28,5 +35,18 @@ echo Home::filterCompetition();
 echo Home::filterTeam();
 echo Home::filterEnd();
 echo Home::order();
-echo Home::list();
+
+if(!empty($_GET['sortBy'])){
+    $sortBy = $_GET['sortBy'];
+    if($sortBy == "desc"){
+        echo Home::matchList($matchListDesc);
+    }else if($sortBy == "starDesc"){
+        echo Home::matchList($matchListStarDesc);
+    }else if($sortBy == "star"){
+        echo Home::matchList($matchListStar);
+    }
+}else{
+    echo Home::matchList($matchList);
+}
+
 echo Home::pageEnd();
