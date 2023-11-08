@@ -1,0 +1,21 @@
+@media (min-width:$tabletScreen){
+    header {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        text-align: left;
+        nav {
+            display: flex;
+            column-gap: 2vh;
+        }
+        .addMatch, .search {
+            display: flex;
+            background-color: $brown;
+            color: white;
+            padding: 1vh;
+            border: 1px solid whitesmoke;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+    }
+}

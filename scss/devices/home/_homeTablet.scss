@@ -1,0 +1,17 @@
+@media (min-width:$tabletScreen){
+    .filter {
+        form {
+            width: 50%;
+        }
+    }
+    .order {
+        width: 60%;
+        align-self: center;
+    }
+    .list {
+        align-items: center;
+        li {
+            width: 60%;
+        }
+    }
+}
