@@ -49,17 +49,20 @@
  
      public static function convertToObj($stdObject) {
  
-         $newEmployee = new Product();
-         $newEmployee->setGender($stdObject->gender);
-         $newEmployee->setCategory($stdObject->category);
-         $newEmployee->setType($stdObject->type);
-         $newEmployee->setBaseColor($stdObject->baseColor);
-         $newEmployee->setProductName($stdObject->productName);
-         $newEmployee->setPrice($stdObject->price);
-         $newEmployee->setSize($stdObject->size);
-         $newEmployee->setUserId($stdObject->userId);
-         $newEmployee->setImage($stdObject->image);
+         $newMatch = new Matches();
+         $newMatch->setMatchDate($stdObject->matchDate);
+         $newMatch->setCategory($stdObject->star);
+         $newMatch->setType($stdObject->country);
+         $newMatch->setBaseColor($stdObject->competition);
+         $newMatch->setProductName($stdObject->leg);
+         $newMatch->setPrice($stdObject->teamA);
+         $newMatch->setSize($stdObject->teamB);
+         $newMatch->setUserId($stdObject->scoreA);
+         $newMatch->setUserId($stdObject->scoreB);
+         $newMatch->setImage($stdObject->scorerA);
+         $newMatch->setImage($stdObject->scorerB);
+         $newMatch->setImage($stdObject->comment);
          
-         return $newEmployee;
+         return $newMatch;
      }
  }
