@@ -1,0 +1,48 @@
+@media (min-width: $mobileScreen){
+    .add {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: $green;
+        row-gap: 3vh;
+        > article {
+            background-color: $turquoise;
+            padding: 1vh;
+            border: 2px solid whitesmoke;
+            border-radius: 10px;
+        }
+        > section {
+            background-color: $turquoise;
+            padding: 2vh;
+        }
+    }
+    .addForm {
+        display: flex;
+        flex-direction: column;
+        > aside {
+            display: flex;
+            justify-content: space-between;
+            > input, textarea {
+                width: 50%;
+                text-align: center;
+            }
+        }
+        select {
+            width: 30%;
+            text-align: center;
+        }
+        .scorerA, .scorerB {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+            input {
+                width: 98%;
+            }
+        }
+        button {
+            font-weight: 600;
+            background-color: white;
+            margin-top: 1vh;
+        }
+    }
+}
