@@ -4,7 +4,6 @@
         private int $id;
         private string $matchDate;
         private int $star;
-        private string $country;
         private string $competition;
         private string $leg;
         private string $teamA;
@@ -71,26 +70,6 @@
         public function setStar($star)
         {
                 $this->star = $star;
-
-                return $this;
-        }
-
-        /**
-         * Get the value of country
-         */ 
-        public function getCountry()
-        {
-                return $this->country;
-        }
-
-        /**
-         * Set the value of country
-         *
-         * @return  self
-         */ 
-        public function setCountry($country)
-        {
-                $this->country = $country;
 
                 return $this;
         }

@@ -9,7 +9,6 @@
              $stdObj->id = $newMatch->getId();
              $stdObj->matchDate = $newMatch->getMatchDate();
              $stdObj->star = $newMatch->getStar();
-             $stdObj->country = $newMatch->getCountry();
              $stdObj->competition = $newMatch->getCompetition();
              $stdObj->leg = $newMatch->getLeg();
              $stdObj->teamA = $newMatch->getTeamA();
@@ -29,7 +28,6 @@
                  $stdObj->id = $newMatch[$i]->getId();
                  $stdObj->matchDate = $newMatch[$i]->getMatchDate();
                  $stdObj->star = $newMatch[$i]->getStar();
-                 $stdObj->country = $newMatch[$i]->getCountry();
                  $stdObj->competition = $newMatch[$i]->getCompetition();
                  $stdObj->leg = $newMatch[$i]->getLeg();
                  $stdObj->teamA = $newMatch[$i]->getTeamA();

@@ -19,6 +19,7 @@
     .addForm {
         display: flex;
         flex-direction: column;
+        row-gap: 3px;
         > aside {
             display: flex;
             justify-content: space-between;
