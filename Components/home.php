@@ -10,10 +10,6 @@ require_once("../class/html/Home.class.php");
 
 MatchDAO::startDb();
 
-header("Access-Control-Allow-Origin: *");
-header("Access-Control-Allow-Methods: GET,POST,HEAD,OPTIONS,PUT,DELETE");
-// header('Content-Type: application/json; charset=utf-8');
-
 $matchList = MatchConverter::convertMatch(
     MatchDAO::getAllMatches()
 );

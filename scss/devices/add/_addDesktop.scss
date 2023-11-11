@@ -1,0 +1,20 @@
+@media(min-width:$desktopScreen){
+    .add {
+        > section {
+            width: 50%;
+        }
+    }
+    .addForm {
+        .scorerA, .scorerB {
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            input {
+                width: 30%;
+            }
+        }
+        textarea {
+            height: 15vh;
+        }
+    }
+}

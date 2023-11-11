@@ -63,5 +63,28 @@
     
             return self::$db->singleResult();
         }
+
+        public static function insertMatch(Matches $newMatch){
+
+            $sql = "INSERT INTO matches(matchDate, star, competition, leg, teamA, teamB, scoreA, scoreB, scorerA, scorerB, comment) VALUES (:matchDate, :star, :competition, :leg, :teamA, :teamB, :scoreA, :scoreB, :scorerA, :scorerB, :comment)";
+
+            self::$db->query($sql);
+    
+            self::$db->bind(":matchDate",$newMatch->getMatchDate());
+            self::$db->bind(":star",$newMatch->getStar());
+            self::$db->bind(":competition",$newMatch->getCompetition());
+            self::$db->bind(":leg",$newMatch->getLeg());
+            self::$db->bind(":teamA",$newMatch->getTeamA());
+            self::$db->bind(":teamB",$newMatch->getTeamB());
+            self::$db->bind(":scoreA",$newMatch->getScoreA());
+            self::$db->bind(":scoreB",$newMatch->getScoreB());
+            self::$db->bind(":scorerA",$newMatch->getScorerA());
+            self::$db->bind(":scorerB",$newMatch->getScorerB());
+            self::$db->bind(":comment",$newMatch->getComment());
+    
+            self::$db->execute();
+    
+            return self::$db->lastInsertId();
+        }
     
     }
