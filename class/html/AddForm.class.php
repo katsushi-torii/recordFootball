@@ -31,30 +31,31 @@
         static function form(){
             $htmlForm = '
             <section>
-                <form action="./home.php" method="POST" class="addForm">
+                <form method="POST" class="addForm">
                     <aside>
                         <label for="matchDate">試合日：</label>
-                        <input type="date" name="matchDate" id="matchDate">
+                        <input type="date" name="matchDate" id="matchDate" required>
                     </aside>
                     <aside>
                         <label for="star">評価(5点満点)：</label>
-                        <input type="number" name="star" id="star">
+                        <input type="number" name="star" id="star" min="0" max="5" required>
                     </aside>
                     <aside>
                         <label for="competetion">大会：</label>
-                        <input type="text" name="competition" id="competition">
+                        <input type="text" name="competition" id="competition" required>
                     </aside>
                     <aside>
                         <label for="competetion">節・回戦：</label>
-                        <input type="text" name="leg" id="leg">
+                        <input type="text" name="leg" id="leg" required>
                     </aside>
                     <aside>
                         <label for="teamA">チーム１：</label>
-                        <input type="text" name="teamA" id="teamA">
+                        <input type="text" name="teamA" id="teamA" required>
                     </aside>
                     <aside>
                         <label for="scoreA">チーム１の点数：</label>
-                        <select name="scoreA" id="scoreA">
+                        <select name="scoreA" id="scoreA" required>                 
+                            <option value="" disabled selected>選択してください</option>
                         </select>
                     </aside>
                     <aside>
@@ -63,11 +64,12 @@
                     </aside>
                     <aside>
                         <label for="teamB">チーム２：</label>
-                        <input type="text" name="teamB" id="teamB">
+                        <input type="text" name="teamB" id="teamB" required>
                     </aside>
                     <aside>
                         <label for="scoreB">チーム２の点数：</label>
-                        <select name="scoreB" id="scoreB">
+                        <select name="scoreB" id="scoreB" required>
+                            <option value="" disabled selected>選択してください</option>
                         </select>
                     </aside>
                     <aside>
@@ -76,9 +78,9 @@
                     </aside>
                     <aside>
                         <label for="comment">自由記述：</label>
-                        <textarea name="comment" id="comment"></textarea>
+                        <textarea name="comment" id="comment" required></textarea>
                     </aside>
-                    <button onsubmit="">追加</button>
+                    <button type="submit">追加</button>
                 </form>
             </section>
             ';
@@ -107,7 +109,7 @@
                         $(".scorerA input").remove();
                         for(let i = 0; i < $("#scoreA").val(); i++){
                             let newInput = $(`     
-                                <input type="text" name="scorerA${i}" id="scorerA${i}">
+                                <input type="text" name="scorerA${i}" id="scorerA${i}" required>
                             `);
                             $(".scorerA").append(newInput);
                         }
@@ -117,7 +119,7 @@
                         $(".scorerB input").remove();
                         for(let i = 0; i < $("#scoreB").val(); i++){
                             let newInput = $(`     
-                                <input type="text" name="scorerB${i}" id="scorerB${i}">
+                                <input type="text" name="scorerB${i}" id="scorerB${i}" required>
                             `);
                             $(".scorerB").append(newInput);
                         }

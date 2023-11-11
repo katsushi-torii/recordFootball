@@ -10,11 +10,6 @@ require_once("../class/html/AddForm.class.php");
 
 MatchDAO::startDb();
 
-echo AddForm::pageHead();
-echo AddForm::title();
-echo AddForm::form();
-echo AddForm::script();
-
 if(!empty($_POST)){
     //得点数に応じて得点者を獲得し、配列にっする
     $scorersA = [];
@@ -45,8 +40,12 @@ if(!empty($_POST)){
     $newMatch->setComment($_POST['comment']);
     
     var_dump($newMatch);
-    // MatchDAO::insertMatch($newMatch);
+    MatchDAO::insertMatch($newMatch);
 
     header("Location: ./home.php");
-
 };
+
+echo AddForm::pageHead();
+echo AddForm::title();
+echo AddForm::form();
+echo AddForm::script();
