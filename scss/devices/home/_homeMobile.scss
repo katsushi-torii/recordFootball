@@ -4,7 +4,7 @@
         flex-direction: column;
         row-gap: 3vh;
         padding-bottom: 3vh;
-        background-color: $green;
+        background-color: $grey;
         > article {
             display: flex;
             flex-direction: column;
@@ -18,11 +18,11 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: $turquoise;
+            background-color: white;
             width: 100%;
             button {
                 border: none;
-                background-color: $turquoise;
+                background-color: white;
                 width: 5vh;
                 height: 5vh;
                 align-self: flex-end;
@@ -44,7 +44,8 @@
         display: flex;
         justify-content: space-around;
         li {
-            background-color: $turquoise;
+            background-color: white;
+            border: 2px solid black;
             padding: 2%;
             border-radius: 10px;
         }
@@ -61,9 +62,9 @@
             display: flex;
             flex-direction: column;
             row-gap: 1vh;
-            border: 5px solid $brown;
+            border: 3px solid black;
             border-radius: 10px;
-            background-color: $turquoise;
+            background-color: white;
             padding: 3%;
         }
         article {
@@ -84,11 +85,11 @@
                 justify-content: space-around;
             }
             a {
-                background-color: $green;
-                color: whitesmoke;
+                background-color: white;
+                color: black;
                 padding: 3%;
                 border-radius: 5px;
-                border: 1px solid whitesmoke;
+                border: 1px solid black;
                 text-align: center;
             }
         }

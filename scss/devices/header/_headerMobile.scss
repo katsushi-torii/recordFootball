@@ -1,12 +1,17 @@
 @media (min-width: $mobileScreen){
     header {
-        background-color: $turquoise;
+        background-color: $grey;
         color: $brown;
         text-align: center;
         padding: 1vh 5vh 1vh 5vh;
         border-bottom: 3px solid black;
-        .addMatch, .search {
-            display: none;
+        nav {
+            >a {
+                display: none;
+            }
+            >button {
+                display: none;
+            }
         }
     }
 }
