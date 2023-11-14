@@ -1,5 +1,6 @@
 @media (min-width: $mobileScreen){
     .add, .edit {
+        padding-top: 5vh;
         display: flex;
         flex-direction: column;
         align-items: center;

@@ -78,7 +78,7 @@
                         <label for="comment">自由記述：</label>
                         <textarea name="comment" id="comment">'.$match->comment.'</textarea>
                     </aside>
-                    <button onsubmit="">追加</button>
+                    <button onsubmit="">編集</button>
                 </form>
             </section>
             ';

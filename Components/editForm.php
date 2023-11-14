@@ -48,7 +48,7 @@ if(!empty($_POST)){
 };
 
 echo EditForm::pageHead();
-echo Header::header();
+echo Header::header(false);
 echo EditForm::title();
 echo EditForm::form($match);
 echo EditForm::script($match);

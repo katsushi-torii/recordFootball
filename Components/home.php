@@ -25,7 +25,7 @@ $matchListStarDesc = MatchConverter::convertMatch(
 );
 
 echo Home::pageHead();
-echo Header::header();
+echo Header::header(true);
 echo Home::filterHead();
 echo Home::filterCompetition();
 echo Home::filterTeam();

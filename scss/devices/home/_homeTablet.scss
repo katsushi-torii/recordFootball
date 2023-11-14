@@ -1,4 +1,18 @@
 @media (min-width:$tabletScreen){
+    .home {
+        a {
+            transition: .4s;
+            &:hover {
+                background-color: black;
+                color: whitesmoke;
+            }
+        }
+        .delete {
+            &:hover {
+                background-color: red;
+            }
+        }
+    }
     .filter {
         form {
             width: 50%;
@@ -7,6 +21,13 @@
     .order {
         width: 60%;
         align-self: center;
+        li { 
+            transition: .4s;
+            &:hover {
+                background-color: black;
+                color: whitesmoke;
+            }
+        }
     }
     .list {
         align-items: center;
