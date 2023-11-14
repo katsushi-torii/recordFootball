@@ -110,5 +110,18 @@
     
             return self::$db->lastInsertId();
         }
+
+        public static function deleteMatch($id){
+
+            $sql = "DELETE from matches WHERE id=:id";
+
+            self::$db->query($sql);
     
+            self::$db->bind(":id",$id);
+    
+            self::$db->execute();
+    
+            return self::$db->rowCount();
+        }
+        
     }

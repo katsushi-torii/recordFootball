@@ -6,11 +6,45 @@
         }
         > aside {
             width: 50%;
-            a{
+            a {
                 transition: .4s;
+                width: 7vh;
+                height: 7vh;
                 &:hover {
                     background-color: black;
                     color: whitesmoke;
+                }
+            }
+            button {
+                transition: .4s;
+                width: 7vh;
+                height: 7vh;
+                &:hover {
+                    background-color: red;
+                    color: whitesmoke;
+                }
+
+            }
+        }
+        blockquote {
+            width: 40%;
+            p {
+                padding-bottom: 2vh;
+            }
+            button {
+                transition: .4s;
+                width: 12vh;
+                height: 6vh;
+                &:hover {
+                    background-color: black;
+                    color: white;
+                }
+            }
+            form {
+                button {
+                    &:hover {
+                        background-color: red;
+                    }
                 }
             }
         }

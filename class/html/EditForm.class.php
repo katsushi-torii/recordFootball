@@ -34,23 +34,23 @@
                 <form action="" method="POST" class="addForm">
                     <aside>
                         <label for="matchDate">試合日：</label>
-                        <input type="date" name="matchDate" id="matchDate" value="'.$match->matchDate.'">
+                        <input type="date" name="matchDate" id="matchDate" value="'.$match->matchDate.'" required>
                     </aside>
                     <aside>
                         <label for="star">評価(5点満点)：</label>
-                        <input type="number" name="star" id="star" value="'.$match->star.'">
+                        <input type="number" name="star" id="star" value="'.$match->star.'" required>
                     </aside>
                     <aside>
                         <label for="competetion">大会：</label>
-                        <input type="text" name="competition" id="competition"  value="'.$match->competition.'">
+                        <input type="text" name="competition" id="competition"  value="'.$match->competition.'" required>
                     </aside>
                     <aside>
                         <label for="competetion">節・回戦：</label>
-                        <input type="text" name="leg" id="leg" value="'.$match->leg.'">
+                        <input type="text" name="leg" id="leg" value="'.$match->leg.'" required>
                     </aside>
                     <aside>
                         <label for="teamA">チーム１：</label>
-                        <input type="text" name="teamA" id="teamA" value="'.$match->teamA.'">
+                        <input type="text" name="teamA" id="teamA" value="'.$match->teamA.'" required>
                     </aside>
                     <aside>
                         <label for="scoreA">チーム１の点数：</label>
@@ -63,7 +63,7 @@
                     </aside>
                     <aside>
                         <label for="teamB">チーム２：</label>
-                        <input type="text" name="teamB" id="teamB" value="'.$match->teamB.'">
+                        <input type="text" name="teamB" id="teamB" value="'.$match->teamB.'"required>
                     </aside>
                     <aside>
                         <label for="scoreB">チーム２の点数：</label>

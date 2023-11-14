@@ -12,8 +12,13 @@ MatchDAO::startDb();
 
 $match = MatchConverter::convertMatch(MatchDAO::getMatchById($_GET['id']));
 
+if(!empty($_POST)){
+    MatchDAO::deleteMatch($_POST['deleteId']);
+    header("Location: ./home.php");
+}
+
 echo MatchData::pageHead();
 echo Header::header(false);
 echo MatchData::matchData($match);
-echo MatchData::aTags($match);
+echo MatchData::options($match);
 echo MatchData::script($match);
