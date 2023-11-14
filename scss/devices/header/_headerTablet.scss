@@ -16,7 +16,11 @@
                 border: 1px solid whitesmoke;
                 border-radius: 8px;
                 font-size: 16px;
-
+                transition: .4s;
+                &:hover{
+                    background-color: black;
+                    color: whitesmoke;
+                }
             }
         }
     }

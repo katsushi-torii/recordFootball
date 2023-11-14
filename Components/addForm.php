@@ -46,6 +46,7 @@ if(!empty($_POST)){
 };
 
 echo AddForm::pageHead();
+echo Header::header(false);
 echo AddForm::title();
 echo AddForm::form();
 echo AddForm::script();

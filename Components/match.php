@@ -13,6 +13,7 @@ MatchDAO::startDb();
 $match = MatchConverter::convertMatch(MatchDAO::getMatchById($_GET['id']));
 
 echo MatchData::pageHead();
-echo Header::header();
+echo Header::header(false);
 echo MatchData::matchData($match);
 echo MatchData::aTags($match);
+echo MatchData::script($match);

@@ -115,10 +115,10 @@
                     </aside>
                 </article>
                 <section>
-                    <strong class="star">'.$match->star.'/5</strong>
+                    <h4><strong class="star">'.$match->star.'</strong>/5</h4>
                     <aside>
                         <a href="match.php?id='.$match->id.'">詳細</a>
-                        <a href="delete">削除</a>
+                        <a href="delete" class="delete">削除</a>
                     </aside>
                 </section>
             </li>
