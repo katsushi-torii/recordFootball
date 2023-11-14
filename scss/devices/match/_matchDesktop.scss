@@ -1,0 +1,22 @@
+@media (min-width: $desktopScreen){
+    .match {
+        > section {
+            width: 50%;
+            font-size: 24px;
+            row-gap: 4vh;
+            padding: 3vh;
+            > article {
+                column-gap: 4vh;
+            }
+        }
+        p {
+            padding-top: 3vh;
+        }
+        > aside {
+            width: 30%;
+            a {
+                font-size: 20px;
+            }
+        }
+    }
+}

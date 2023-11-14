@@ -1,0 +1,17 @@
+@media (min-width: $tabletScreen){
+    .match {
+        > section {
+            width: 60%;
+            font-size: 22px;
+        }
+        > aside {
+            width: 50%;
+            a{
+                &:hover {
+                    background-color: black;
+                    color: whitesmoke;
+                }
+            }
+        }
+    }
+}

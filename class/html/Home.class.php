@@ -117,7 +117,7 @@
                 <section>
                     <strong class="star">'.$match->star.'/5</strong>
                     <aside>
-                        <a href="editForm.php?id='.$match->id.'">編集</a>
+                        <a href="match.php?id='.$match->id.'">詳細</a>
                         <a href="delete">削除</a>
                     </aside>
                 </section>
