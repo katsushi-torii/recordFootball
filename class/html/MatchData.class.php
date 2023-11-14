@@ -57,16 +57,26 @@
             return $htmlMatchData;
         }
 
-        static function aTags($match){
-            $htmlATags = '
+        static function options($match){
+            $htmlOptions = '
                 <aside>
                     <a href="home.php">一覧</a>
                     <a href="editForm.php?id='.$match->id.'">編集</a>
-                    <a href="delete">削除</a>
+                    <button onclick="deleteConfirm()">削除</button>
                 </aside>
+                <blockquote>
+                    <p>本当に削除しますか?</p>
+                    <aside>
+                        <form action="" method="POST">
+                            <input type="hidden" name="deleteId" value="'.$match->id.'">
+                            <button type="submit">はい</button>
+                        </form>
+                        <button onclick="deleteNo()">いいえ</button>
+                    </aside>
+                </blockquote>
             </main>
             ';
-            return $htmlATags;
+            return $htmlOptions;
         }
 
         static function script($match){
@@ -75,6 +85,12 @@
             <script>
                 for(let i = 0; i < '.$match->star.'; i++){
                     $("ul i").eq(i).addClass("yellow");
+                }
+                function deleteConfirm(){
+                    $("blockquote").show();
+                }
+                function deleteNo(){
+                    $("blockquote").hide();
                 }
             </script>
             </html>

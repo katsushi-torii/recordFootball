@@ -70,6 +70,7 @@
         article {
             display: flex;
             flex-direction: column;
+            row-gap: 1vh;
             aside {
                 display: flex;
                 justify-content: space-around;
@@ -79,15 +80,10 @@
             display: flex;
             justify-content: space-around;
             align-items: center;
-            aside {
-                display: flex;
-                width: 40%;
-                justify-content: space-around;
-            }
             a {
                 background-color: white;
                 color: black;
-                padding: 3%;
+                padding: 1%;
                 border-radius: 5px;
                 border: 1px solid black;
                 text-align: center;

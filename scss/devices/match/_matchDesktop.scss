@@ -8,15 +8,25 @@
             > article {
                 column-gap: 4vh;
             }
-        }
-        p {
-            padding-top: 3vh;
+            p {
+                padding-top: 3vh;
+            }
         }
         > aside {
             width: 30%;
-            a {
+            a, button {
                 font-size: 20px;
             }
         }
+        blockquote {
+            width: 20%;
+            font-size: 20px;
+            button {
+                width: 7vw;
+                height: 3vw;
+                font-size: 20px;
+            }
+        }
+
     }
 }

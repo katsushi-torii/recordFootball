@@ -78,7 +78,7 @@
                     </aside>
                     <aside>
                         <label for="comment">自由記述：</label>
-                        <textarea name="comment" id="comment" required></textarea>
+                        <textarea name="comment" id="comment"></textarea>
                     </aside>
                     <button type="submit">追加</button>
                 </form>

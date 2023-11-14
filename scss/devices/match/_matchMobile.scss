@@ -35,21 +35,41 @@
             justify-content: space-around;
             width: 80%;
             padding: 1vh 0;
-            a {
+            a, button {
                 background-color: white;
                 border: 1px solid black;
-                width: 7vh;
-                height: 7vh;
+                width: 10vw;
+                height: 10vw;
                 border-radius: 100%;
                 display: flex;
                 justify-content: center;
                 align-items: center;
                 color: black;
                 font-weight: 600;
+                font-size: 16px;
             }
         }
         .yellow {
             color: yellow;
+        }
+        blockquote {
+            width: 60%;
+            display: none;
+            flex-direction: column;
+            border: 1px solid black;
+            padding: 1vh;
+            p {
+                text-align: center;
+                padding-bottom: 1vh;
+            }
+            aside {
+                display: flex;
+                justify-content: space-around;
+            }
+            button {
+                width: 12vw;
+                height: 6vw;
+            }
         }
     }
 }
