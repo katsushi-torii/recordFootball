@@ -3,14 +3,16 @@
 require_once("../Config.inc.php");
 require_once("../class/object/Matches.class.php");
 require_once("../PDOAgent.class.php");
-require_once("../DAO/MatchDAO.class.php");
+require_once("../DAO/SelectMatchDAO.class.php");
+require_once("../DAO/FunctionMatchDAO.class.php");
 require_once("../class/converter/MatchConverter.class.php");
 require_once("../class/html/Header.class.php");
 require_once("../class/html/EditForm.class.php");
 
-MatchDAO::startDb();
+SelectMatchDAO::startDb();
+FunctionMatchDAO::startDb();
 
-$match = MatchConverter::convertMatch(MatchDAO::getMatchById($_GET['id']));
+$match = MatchConverter::convertMatch(SelectMatchDAO::getMatchById($_GET['id']));
 
 if(!empty($_POST)){
     //得点数に応じて得点者を獲得し、配列にする
@@ -42,7 +44,7 @@ if(!empty($_POST)){
     $newMatch->setComment($_POST['comment']);
     
     var_dump($newMatch);
-    MatchDAO::editMatch($newMatch, $_GET['id']);
+    FunctionMatchDAO::editMatch($newMatch, $_GET['id']);
 
     header("Location: ./home.php");
 };

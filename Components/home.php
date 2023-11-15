@@ -3,25 +3,25 @@
 require_once("../Config.inc.php");
 require_once("../class/object/Matches.class.php");
 require_once("../PDOAgent.class.php");
-require_once("../DAO/MatchDAO.class.php");
+require_once("../DAO/SelectMatchDAO.class.php");
 require_once("../class/converter/MatchConverter.class.php");
 require_once("../class/html/Header.class.php");
 require_once("../class/html/Home.class.php");
 
-MatchDAO::startDb();
+SelectMatchDAO::startDb();
 
 $matchList = MatchConverter::convertMatch(
-    MatchDAO::getAllMatches()
+    SelectMatchDAO::getAllMatches()
 );
 
 $matchListDesc = MatchConverter::convertMatch(
-    MatchDAO::getAllMatchesDesc()
+    SelectMatchDAO::getAllMatchesDesc()
 );
 $matchListStar = MatchConverter::convertMatch(
-    MatchDAO::getAllMatchesStar()
+    SelectMatchDAO::getAllMatchesStar()
 );
 $matchListStarDesc = MatchConverter::convertMatch(
-    MatchDAO::getAllMatchesStarDesc()
+    SelectMatchDAO::getAllMatchesStarDesc()
 );
 
 echo Home::pageHead();
