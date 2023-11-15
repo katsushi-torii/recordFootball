@@ -55,4 +55,5 @@ echo AddForm::pageHead();
 echo Header::header(false);
 echo AddForm::title();
 echo AddForm::form();
+echo AddForm::options();
 echo AddForm::script();

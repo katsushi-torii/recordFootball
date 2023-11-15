@@ -16,27 +16,38 @@
             return $htmlHead;
         }
 
+        static function fixedButtons(){
+            $htmlfixedButtons = '
+            <main class="home">
+                <aside>
+                    <button>検索</button>
+                    <button>追加</button>
+                    <a href="#" class="toTop">↑</a>
+                </aside>
+            ';
+            return $htmlfixedButtons;
+        }
+
         static function filterHead(){
             $htmlFilterHead = '
-            <main class="home">
-                <section class="filter">
-                    <article>
-                        <button>✖</button>
-                        <form action="GET">
-                            <aside>
-                                <label for="date">日付：</label>
-                                <input type="date" name="date" id="date">
-                            </aside>
-                            <aside>
-                                <label for="star">評価：</label>
-                                <select name="star" id="star">
-                                    <option value="1">1</option>
-                                    <option value="2">2</option>
-                                    <option value="3">3</option>
-                                    <option value="4">4</option>
-                                    <option value="5">5</option>
-                                </select>
-                            </aside>
+            <section class="filter">
+                <article>
+                    <button>✖</button>
+                    <form action="GET">
+                        <aside>
+                            <label for="date">日付：</label>
+                            <input type="date" name="date" id="date">
+                        </aside>
+                        <aside>
+                            <label for="star">評価：</label>
+                            <select name="star" id="star">
+                                <option value="1">1</option>
+                                <option value="2">2</option>
+                                <option value="3">3</option>
+                                <option value="4">4</option>
+                                <option value="5">5</option>
+                            </select>
+                        </aside>
             ';
             return $htmlFilterHead;
         }
