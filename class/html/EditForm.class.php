@@ -31,7 +31,7 @@
         static function form($match){
             $htmlForm = '
             <section>
-                <form action="" method="POST" class="addForm">
+                <form action="" method="POST" class="editForm">
                     <aside>
                         <label for="matchDate">試合日：</label>
                         <input type="date" name="matchDate" id="matchDate" value="'.$match->matchDate.'" required>
@@ -83,6 +83,17 @@
             </section>
             ';
             return $htmlForm;
+        }
+
+        static function options($match){
+            $htmlOptions = '
+                <aside>
+                    <a href="home.php">一覧</a>
+                    <a href="match.php?id='.$match->id.'" class="goBack">戻る</a>
+                </aside>
+            </main>
+            ';
+            return $htmlOptions;
         }
 
         static function script($match){

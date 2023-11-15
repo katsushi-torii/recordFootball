@@ -53,4 +53,5 @@ echo EditForm::pageHead();
 echo Header::header(false);
 echo EditForm::title();
 echo EditForm::form($match);
+echo EditForm::options($match);
 echo EditForm::script($match);

@@ -87,6 +87,16 @@
             return $htmlForm;
         }
 
+        static function options(){
+            $htmlOptions = '
+                <aside>
+                    <a href="home.php">一覧</a>
+                </aside>
+            </main>
+            ';
+            return $htmlOptions;
+        }
+
         static function script(){
             $htmlScript = '
                     </main>

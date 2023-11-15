@@ -12,6 +12,22 @@
                 background-color: red;
             }
         }
+        > aside {
+            > button {
+                display: none;
+            }
+            > .toTop {
+                display: flex;
+                transition: .4s;
+                width: 7vh;
+                height: 7vh;
+                &:hover {
+                    background-color: white;
+                    color: black;
+                    font-size: 24px;
+                }
+            }
+        }
     }
     .filter {
         form {

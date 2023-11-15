@@ -95,4 +95,33 @@
             font-weight: 900;
         }
     }
+    //ボタン固定用
+    .home {
+        position: relative;
+        > aside {
+            display: flex;
+            justify-content: center;
+            column-gap: 20vw;
+            position: fixed;
+            z-index: 1;
+            top: 85vh;
+            width: 100%;
+            > button, a {
+                background-color: black;
+                color: whitesmoke;
+                width: 12vw;
+                height: 12vw;
+                border-radius: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 600;
+                font-size: 18px;
+            }
+            > .toTop {
+                display: none;
+            }
+        }
+    }
+
 }
