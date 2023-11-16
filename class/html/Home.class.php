@@ -41,6 +41,7 @@
                         <aside>
                             <label for="star">評価：</label>
                             <select name="star" id="star">
+                                <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -52,26 +53,34 @@
             return $htmlFilterHead;
         }
 
-        static function filterCompetition(){
+        static function filterCompetition($competitionArray){
             $htmlCompetition = '
             <aside>
                 <label for="competetion">大会形式：</label>
-                <select name="competetion" id="competetion">
-                    <option value="premier">Premier League</option>
-                    <option value="laLiga">La Liga</option>
+                <select name="competetion" id="competetion">';
+            foreach($competitionArray as $competition){
+                $htmlCompetition .= '  
+                <option value="'.$competition.'">'.$competition.'</option>
+                ';
+            };
+            $htmlCompetition .= '    
                 </select>
             </aside>
             ';
             return $htmlCompetition;
         }
 
-        static function filterTeam(){
+        static function filterTeam($teams){
             $htmlTeam = '
             <aside>
                 <label for="team">チーム：</label>
-                <select name="team" id="team">
-                    <option value="arsenal">Arsenal</option>
-                    <option value="liverpool">Liverpool</option>
+                <select name="team" id="team">';
+            foreach($teams as $team){
+                $htmlTeam .= ' 
+                <option value="'.$team.'">'.$team.'</option>
+                ';
+            }
+            $htmlTeam .= '
                 </select>
             </aside>
             ';

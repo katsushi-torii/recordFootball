@@ -13,7 +13,6 @@ SelectMatchDAO::startDb();
 $matchList = MatchConverter::convertMatch(
     SelectMatchDAO::getAllMatches()
 );
-
 $matchListDesc = MatchConverter::convertMatch(
     SelectMatchDAO::getAllMatchesDesc()
 );
@@ -24,12 +23,28 @@ $matchListStarDesc = MatchConverter::convertMatch(
     SelectMatchDAO::getAllMatchesStarDesc()
 );
 
+//クラスMatchesで返ってくるからそれぞれのcompetitionを抽出して新しい配列に入れる
+$competitions = SelectMatchDAO::getAllCompetitions();
+$competitionArray = [];
+foreach($competitions as $competition){
+    $competitionArray[] = $competition->getCompetition();
+}
+
+//competitionと流れは一緒、2個のコラムからとってくる分クエリでdistinctが使えないからarray_uniqueで重複削除する
+$teams = SelectMatchDAO::getAllTeams();
+$teamArray = [];
+foreach($teams as $team){
+    $teamArray[] = $team->getTeamA();
+    $teamArray[] = $team->getTeamB();
+}
+$distinctTeamArray = array_unique($teamArray);
+
 echo Home::pageHead();
 echo Header::header(true);
 echo Home::fixedButtons();
 echo Home::filterHead();
-echo Home::filterCompetition();
-echo Home::filterTeam();
+echo Home::filterCompetition($competitionArray);
+echo Home::filterTeam($distinctTeamArray);
 echo Home::filterEnd();
 echo Home::order();
 

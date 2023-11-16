@@ -75,5 +75,26 @@
     
             return self::$db->singleResult();
         }
-    
+
+        public static function getAllCompetitions(){
+
+            $sql = "SELECT DISTINCT competition FROM matches";
+
+            self::$db->query($sql);
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
+        
+        public static function getAllTeams(){
+
+            $sql = "SELECT teamA, teamB FROM matches";
+
+            self::$db->query($sql);
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
     }
