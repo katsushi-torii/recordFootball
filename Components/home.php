@@ -10,18 +10,18 @@ require_once("../class/html/Home.class.php");
 
 SelectMatchDAO::startDb();
 
-$matchList = MatchConverter::convertMatch(
-    SelectMatchDAO::getAllMatches()
-);
-$matchListDesc = MatchConverter::convertMatch(
-    SelectMatchDAO::getAllMatchesDesc()
-);
-$matchListStar = MatchConverter::convertMatch(
-    SelectMatchDAO::getAllMatchesStar()
-);
-$matchListStarDesc = MatchConverter::convertMatch(
-    SelectMatchDAO::getAllMatchesStarDesc()
-);
+// $matchList = MatchConverter::convertMatch(
+//     SelectMatchDAO::getAllMatches()
+// );
+// $matchListDesc = MatchConverter::convertMatch(
+//     SelectMatchDAO::getAllMatchesDesc()
+// );
+// $matchListStar = MatchConverter::convertMatch(
+//     SelectMatchDAO::getAllMatchesStar()
+// );
+// $matchListStarDesc = MatchConverter::convertMatch(
+//     SelectMatchDAO::getAllMatchesStarDesc()
+// );
 
 //クラスMatchesで返ってくるからそれぞれのcompetitionを抽出して新しい配列に入れる
 $competitions = SelectMatchDAO::getAllCompetitions();
@@ -39,6 +39,7 @@ foreach($teams as $team){
 }
 $distinctTeamArray = array_unique($teamArray);
 
+
 echo Home::pageHead();
 echo Header::header(true);
 echo Home::fixedButtons();
@@ -48,17 +49,44 @@ echo Home::filterTeam($distinctTeamArray);
 echo Home::filterEnd();
 echo Home::order();
 
-if(!empty($_GET['sortBy'])){
-    $sortBy = $_GET['sortBy'];
-    if($sortBy == "desc"){
-        echo Home::matchList($matchListDesc);
-    }else if($sortBy == "starDesc"){
-        echo Home::matchList($matchListStarDesc);
-    }else if($sortBy == "star"){
-        echo Home::matchList($matchListStar);
-    }
-}else{
-    echo Home::matchList($matchList);
+class Filter {
+    public $star = "";
+    public $competition = "";
 }
+
+if(!empty($_GET)){
+    $selectedValues = new Filter;
+    if(!empty($_GET['star'])){
+        $selectedStar = $_GET['star'];
+        $selectedValues->star = $selectedStar;
+    };
+    if(!empty($_GET['competition'])){
+        $selectedCompetition = $_GET['competition'];
+        $selectedValues->competition = $selectedCompetition;
+    };
+    $matchList = MatchConverter::convertMatch(
+        SelectMatchDAO::getAllMatchesFiltered($selectedValues)
+    );
+}else{
+    $matchList = MatchConverter::convertMatch(
+        SelectMatchDAO::getAllMatches()
+    );
+}
+
+//sortByで$matchlist内のarray_sortをする
+// if(!empty($_GET['sortBy'])){
+//     $sortBy = $_GET['sortBy'];
+//     if($sortBy == "desc"){
+//         echo Home::matchList($matchListDesc);
+//     }else if($sortBy == "starDesc"){
+//         echo Home::matchList($matchListStarDesc);
+//     }else if($sortBy == "star"){
+//         echo Home::matchList($matchListStar);
+//     }
+// }else{
+//     echo Home::matchList($matchList);
+// }
+
+echo Home::matchList($matchList);
 
 echo Home::pageEnd();

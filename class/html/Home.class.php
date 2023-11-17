@@ -33,14 +33,11 @@
             <section class="filter">
                 <article>
                     <button>✖</button>
-                    <form action="GET">
-                        <aside>
-                            <label for="date">日付：</label>
-                            <input type="date" name="date" id="date">
-                        </aside>
+                    <form method="GET">
                         <aside>
                             <label for="star">評価：</label>
                             <select name="star" id="star">
+                                <option selected disabled>下記から選択</option>
                                 <option value="0">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
@@ -56,8 +53,9 @@
         static function filterCompetition($competitionArray){
             $htmlCompetition = '
             <aside>
-                <label for="competetion">大会形式：</label>
-                <select name="competetion" id="competetion">';
+                <label for="competition">大会形式：</label>
+                <select name="competition" id="competition">
+                    <option selected disabled>下記から選択</option>';
             foreach($competitionArray as $competition){
                 $htmlCompetition .= '  
                 <option value="'.$competition.'">'.$competition.'</option>
@@ -74,7 +72,8 @@
             $htmlTeam = '
             <aside>
                 <label for="team">チーム：</label>
-                <select name="team" id="team">';
+                <select name="team" id="team">
+                    <option selected disabled>下記から選択</option>';
             foreach($teams as $team){
                 $htmlTeam .= ' 
                 <option value="'.$team.'">'.$team.'</option>
@@ -101,7 +100,7 @@
             $htmlOrder = '
             <article>
                 <ul class="order">
-                    <li><a href="?sortBy=desc">日付↓</a></li>
+                    <li><a href="?sortBy=あいうえお">日付↓</a></li>
                     <li><a href="./">日付↑</a></li>
                     <li><a href="?sortBy=starDesc">評価↓</a></li>
                     <li><a href="?sortBy=star">評価↑</a></li>
