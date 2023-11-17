@@ -49,6 +49,7 @@ echo Home::filterTeam($distinctTeamArray);
 echo Home::filterEnd();
 echo Home::order();
 
+//デフォルト値を""にすることで後で""のままの場合そのフィルターは使われていないことを指す
 class Filter {
     public $star = "";
     public $competition = "";
@@ -56,18 +57,18 @@ class Filter {
 
 if(!empty($_GET)){
     $selectedValues = new Filter;
+    //フィルターstarが使われている場合、オブジェクト$selectedValuesの$starが""じゃなくなりフィルター入っている判定になる
     if(!empty($_GET['star'])){
-        $selectedStar = $_GET['star'];
-        $selectedValues->star = $selectedStar;
+        $selectedValues->star = $_GET['star'];
     };
     if(!empty($_GET['competition'])){
-        $selectedCompetition = $_GET['competition'];
-        $selectedValues->competition = $selectedCompetition;
+        $selectedValues->competition = $_GET['competition'];
     };
     $matchList = MatchConverter::convertMatch(
         SelectMatchDAO::getAllMatchesFiltered($selectedValues)
     );
 }else{
+    //何のフィルターもない場合
     $matchList = MatchConverter::convertMatch(
         SelectMatchDAO::getAllMatches()
     );

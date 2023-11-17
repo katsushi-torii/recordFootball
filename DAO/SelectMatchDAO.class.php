@@ -100,8 +100,6 @@
         
         public static function getAllMatchesFiltered($selectedValues){
 
-            $where = "";
-            $and = "";
             $star = "";
             $competition = "";
             $count = 0;
@@ -109,17 +107,21 @@
             $selectedStar = $selectedValues->star;
             if($selectedStar != ""){
                 $count += 1;
-                $where = "WHERE";
                 $star = "star = {$selectedStar}";
             };
             
             $selectedCompetition = $selectedValues->competition;
             if($selectedCompetition != ""){
                 $count += 1;
-                $where = "WHERE";
                 $competition = "competition = '{$selectedCompetition}'";
             };
 
+            //$whereはフィルターが１つでもあったら存在、$andは２つ以上あったら
+            $where = "";
+            $and = "";
+            if($count >= 1){
+                $where = "WHERE";
+            }
             if($count > 1){
                 $and = "AND";
             }
@@ -127,18 +129,6 @@
             $sql = "SELECT * FROM matches $where $star $and $competition";
 
             self::$db->query($sql);
-
-            self::$db->execute();
-
-            return self::$db->resultSet();
-        }
-        public static function getMatchesByCompetitions(string $competition){
-
-            $sql = "SELECT * FROM matches WHERE competition = :competition";
-
-            self::$db->query($sql);
-
-            self::$db->bind(':competition',$competition);
 
             self::$db->execute();
 
