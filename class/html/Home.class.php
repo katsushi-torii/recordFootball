@@ -38,7 +38,7 @@
                             <label for="star">評価：</label>
                             <select name="star" id="star">
                                 <option selected disabled>下記から選択</option>
-                                <option value="0">0</option>
+                                <option value="9">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -96,14 +96,14 @@
             return $htmlFilterEnd;
         }
 
-        static function order(){
+        static function order($parameter){
             $htmlOrder = '
             <article>
                 <ul class="order">
-                    <li><a href="?sortBy=あいうえお">日付↓</a></li>
-                    <li><a href="./">日付↑</a></li>
-                    <li><a href="?sortBy=starDesc">評価↓</a></li>
-                    <li><a href="?sortBy=star">評価↑</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=desc">日付↓</a></li>
+                    <li><a href="?'.$parameter.'">日付↑</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=starDesc">評価↓</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=star">評価↑</a></li>
                 </ul>
             ';
             return $htmlOrder;

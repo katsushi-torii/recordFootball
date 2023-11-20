@@ -102,6 +102,7 @@
 
             $star = "";
             $competition = "";
+            $team = "";
             $count = 0;
 
             $selectedStar = $selectedValues->star;
@@ -113,20 +114,30 @@
             $selectedCompetition = $selectedValues->competition;
             if($selectedCompetition != ""){
                 $count += 1;
-                $competition = "competition = '{$selectedCompetition}'";
+                if($count == 1){
+                    $competition = "competition = '{$selectedCompetition}'";
+                }else{
+                    $competition = "AND competition = '{$selectedCompetition}'";
+                };
+            };
+            
+            $selectedTeam = $selectedValues->team;
+            if($selectedTeam != ""){
+                $count += 1;
+                if($count == 1){
+                    $team = "(teamA = '{$selectedTeam}' OR teamB = '{$selectedTeam}')";
+                }else{
+                    $team = "AND (teamA = '{$selectedTeam}' OR teamB = '{$selectedTeam}')";
+                };
+            };
+            
+            //$whereはフィルターが１つでもあったら存在
+            $where = "";
+            if($count > 0){
+                $where = "WHERE";
             };
 
-            //$whereはフィルターが１つでもあったら存在、$andは２つ以上あったら
-            $where = "";
-            $and = "";
-            if($count >= 1){
-                $where = "WHERE";
-            }
-            if($count > 1){
-                $and = "AND";
-            }
-
-            $sql = "SELECT * FROM matches $where $star $and $competition";
+            $sql = "SELECT * FROM matches $where $star $competition $team";
 
             self::$db->query($sql);
 

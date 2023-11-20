@@ -50,7 +50,13 @@
             border-radius: 10px;
         }
         a {
-            color: black;
+            &:link { 
+                color: black;
+            }
+            &:visited {
+                color: white;
+                background-color: black;
+            }
         }
     }
     .list {
