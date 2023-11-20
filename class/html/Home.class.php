@@ -33,14 +33,12 @@
             <section class="filter">
                 <article>
                     <button>✖</button>
-                    <form action="GET">
-                        <aside>
-                            <label for="date">日付：</label>
-                            <input type="date" name="date" id="date">
-                        </aside>
+                    <form method="GET">
                         <aside>
                             <label for="star">評価：</label>
                             <select name="star" id="star">
+                                <option selected disabled>下記から選択</option>
+                                <option value="9">0</option>
                                 <option value="1">1</option>
                                 <option value="2">2</option>
                                 <option value="3">3</option>
@@ -52,26 +50,36 @@
             return $htmlFilterHead;
         }
 
-        static function filterCompetition(){
+        static function filterCompetition($competitionArray){
             $htmlCompetition = '
             <aside>
-                <label for="competetion">大会形式：</label>
-                <select name="competetion" id="competetion">
-                    <option value="premier">Premier League</option>
-                    <option value="laLiga">La Liga</option>
+                <label for="competition">大会形式：</label>
+                <select name="competition" id="competition">
+                    <option selected disabled>下記から選択</option>';
+            foreach($competitionArray as $competition){
+                $htmlCompetition .= '  
+                <option value="'.$competition.'">'.$competition.'</option>
+                ';
+            };
+            $htmlCompetition .= '    
                 </select>
             </aside>
             ';
             return $htmlCompetition;
         }
 
-        static function filterTeam(){
+        static function filterTeam($teams){
             $htmlTeam = '
             <aside>
                 <label for="team">チーム：</label>
                 <select name="team" id="team">
-                    <option value="arsenal">Arsenal</option>
-                    <option value="liverpool">Liverpool</option>
+                    <option selected disabled>下記から選択</option>';
+            foreach($teams as $team){
+                $htmlTeam .= ' 
+                <option value="'.$team.'">'.$team.'</option>
+                ';
+            }
+            $htmlTeam .= '
                 </select>
             </aside>
             ';
@@ -88,14 +96,14 @@
             return $htmlFilterEnd;
         }
 
-        static function order(){
+        static function order($parameter){
             $htmlOrder = '
             <article>
                 <ul class="order">
-                    <li><a href="?sortBy=desc">日付↓</a></li>
-                    <li><a href="./">日付↑</a></li>
-                    <li><a href="?sortBy=starDesc">評価↓</a></li>
-                    <li><a href="?sortBy=star">評価↑</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=desc">日付↓</a></li>
+                    <li><a href="?'.$parameter.'">日付↑</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=starDesc">評価↓</a></li>
+                    <li><a href="?'.$parameter.'&sortBy=star">評価↑</a></li>
                 </ul>
             ';
             return $htmlOrder;

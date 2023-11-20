@@ -75,5 +75,74 @@
     
             return self::$db->singleResult();
         }
-    
+
+        public static function getAllCompetitions(){
+
+            $sql = "SELECT DISTINCT competition FROM matches";
+
+            self::$db->query($sql);
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
+        
+        public static function getAllTeams(){
+
+            $sql = "SELECT teamA, teamB FROM matches";
+
+            self::$db->query($sql);
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
+        
+        public static function getAllMatchesFiltered($selectedValues){
+
+            $star = "";
+            $competition = "";
+            $team = "";
+            $count = 0;
+
+            $selectedStar = $selectedValues->star;
+            if($selectedStar != ""){
+                $count += 1;
+                $star = "star = {$selectedStar}";
+            };
+            
+            $selectedCompetition = $selectedValues->competition;
+            if($selectedCompetition != ""){
+                $count += 1;
+                if($count == 1){
+                    $competition = "competition = '{$selectedCompetition}'";
+                }else{
+                    $competition = "AND competition = '{$selectedCompetition}'";
+                };
+            };
+            
+            $selectedTeam = $selectedValues->team;
+            if($selectedTeam != ""){
+                $count += 1;
+                if($count == 1){
+                    $team = "(teamA = '{$selectedTeam}' OR teamB = '{$selectedTeam}')";
+                }else{
+                    $team = "AND (teamA = '{$selectedTeam}' OR teamB = '{$selectedTeam}')";
+                };
+            };
+            
+            //$whereはフィルターが１つでもあったら存在
+            $where = "";
+            if($count > 0){
+                $where = "WHERE";
+            };
+
+            $sql = "SELECT * FROM matches $where $star $competition $team";
+
+            self::$db->query($sql);
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
     }
