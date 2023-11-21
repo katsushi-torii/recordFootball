@@ -8,8 +8,11 @@
                 <meta charset="UTF-8">
                 <meta http-equiv="X-UA-Compatible" content="IE=edge">
                 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-                <title>Document</title>
+                <title>Home</title>
                 <link rel="stylesheet" href="../css/style.css">
+                <script src="https://code.jquery.com/jquery-3.7.1.js"
+                integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+                crossorigin="anonymous"></script>
             </head>
             <body>
             ';
@@ -20,7 +23,7 @@
             $htmlfixedButtons = '
             <main class="home">
                 <aside>
-                    <button>検索</button>
+                    <button class="search">検索</button>
                     <button>追加</button>
                     <a href="#" class="toTop">↑</a>
                 </aside>
@@ -32,7 +35,7 @@
             $htmlFilterHead = '
             <section class="filter">
                 <article>
-                    <button>✖</button>
+                    <button class="close">✖</button>
                     <form method="GET">
                         <aside>
                             <label for="star">評価：</label>
@@ -142,13 +145,21 @@
             return $htmlRow;
         }
 
-        static function pageEnd(){
-            $htmlEnd = '
+        static function script(){
+            $htmlScript = '
                     </article>
                 </main>
-            </body>
+            </body>          
+            <script>
+            $(".search").click(()=>{
+                $(".filter").show();
+            })
+            $(".close").click(()=>{
+                $(".filter").hide();
+            })
+            </script>
             </html>
             ';
-            return $htmlEnd;
+            return $htmlScript;
         }
     }

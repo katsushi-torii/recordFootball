@@ -33,6 +33,13 @@
         form {
             width: 50%;
         }
+        input {
+            transition: .4s;
+            &:hover {
+                background-color: black;
+                color: whitesmoke;
+            }
+        }
     }
     .order {
         width: 60%;

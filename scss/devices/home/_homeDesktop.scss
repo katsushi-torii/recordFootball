@@ -7,6 +7,9 @@
             max-width: 720px;
         }
     }
+    .close {
+        display: none;
+    }
     .filter {
         width: 40%;
         height: 100%;
@@ -15,6 +18,7 @@
             width: 80%;
             row-gap: 3vh;
             font-size: 20px;
+            padding-top: 3vh;
         }
         input, select {
             font-size: 16px;

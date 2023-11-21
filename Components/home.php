@@ -100,4 +100,4 @@ if(!empty($_GET)){
 };
 
 echo Home::matchList($matchList);
-echo Home::pageEnd();
+echo Home::script();

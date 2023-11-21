@@ -2,7 +2,6 @@
     .home {
         display: flex;
         flex-direction: column;
-        row-gap: 3vh;
         padding-bottom: 3vh;
         background-color: $grey;
         > article {
@@ -38,11 +37,16 @@
                 display: flex;
                 justify-content: space-between;
             }
+            input {
+                background-color: white;
+                border: 1px solid;
+            }
         }
     }
     .order {
         display: flex;
         justify-content: space-around;
+        padding-top: 3vh;
         li {
             background-color: white;
             border: 1px solid black;
@@ -50,13 +54,7 @@
             border-radius: 10px;
         }
         a {
-            &:link { 
-                color: black;
-            }
-            &:visited {
-                color: white;
-                background-color: black;
-            }
+            color: black;
         }
     }
     .list {
