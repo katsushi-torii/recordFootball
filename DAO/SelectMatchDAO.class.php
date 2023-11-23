@@ -97,6 +97,26 @@
 
             return self::$db->resultSet();
         }
+
+        public static function getAllMatchesKeywords($keyword){
+
+            $sql = "SELECT * FROM matches WHERE
+            competition LIKE :keyword
+            OR leg LIKE :keyword
+            OR teamA LIKE :keyword
+            OR teamB LIKE :keyword
+            OR scorerA LIKE :keyword
+            OR scorerB LIKE :keyword
+            OR comment LIKE :keyword";
+
+            self::$db->query($sql);
+                
+            self::$db->bind(':keyword', "%{$keyword}%");
+
+            self::$db->execute();
+
+            return self::$db->resultSet();
+        }
         
         public static function getAllMatchesFiltered($selectedValues){
 

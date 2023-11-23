@@ -17,8 +17,8 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            background-color: white;
             width: 100%;
+            background-color: white;
             button {
                 border: none;
                 background-color: white;
@@ -32,15 +32,34 @@
             flex-direction: column;
             row-gap: 1vh;
             width: 80%;
-            padding-bottom: 3vh;
+            padding: 3vh 0;
             > aside {
                 display: flex;
                 justify-content: space-between;
             }
             input {
                 background-color: white;
-                border: 1px solid;
+                border: 1px solid black;
+                color: black;
             }
+        }
+        .keywordForm {
+            width: 90%;
+            align-items: center;
+            border-bottom: 2px solid black;
+            padding-top: 0;
+            aside {
+                width: 88.9%;
+            }
+        }
+        .keyword {
+            width: 80%;
+            padding: 1px;
+            text-align: center;
+        }
+        .keywordSubmit {
+            width: 20%;
+            padding: 1px;
         }
     }
     .order {

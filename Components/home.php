@@ -38,6 +38,8 @@ echo Home::pageHead();
 echo Header::header(true);
 echo Home::fixedButtons();
 echo Home::filterHead();
+echo Home::filterSearch();
+echo Home::filterStar();
 echo Home::filterCompetition($competitionArray);
 echo Home::filterTeam($distinctTeamArray);
 echo Home::filterEnd();
@@ -52,24 +54,41 @@ class Filter {
 
 if(!empty($_GET)){
     $selectedValues = new Filter;
+
+    if(!empty($_GET['keyword'])){
+        $matchList = MatchConverter::convertMatch(
+            SelectMatchDAO::getAllMatchesKeywords($_GET['keyword'])
+        );
+    }elseif(empty($_GET['keyword'])){
+        $matchList = MatchConverter::convertMatch(
+            SelectMatchDAO::getAllMatches()
+        );
+    };
+
     //フィルターstarが使われている場合、オブジェクト$selectedValuesの$starが""じゃなくなりフィルター入っている判定になる
     if(!empty($_GET['star'])){
-        //0はempty扱いとなるためフィルターでゼロの時は9と出るように設定している
+        //0はempty扱いとなるため選択肢0のvalueは9に設定している
         if($_GET['star'] == 9){
             $selectedValues->star = 0;
         }else{
             $selectedValues->star = $_GET['star'];
         };
+        $matchList = MatchConverter::convertMatch(
+            SelectMatchDAO::getAllMatchesFiltered($selectedValues)
+        );
     };
     if(!empty($_GET['competition'])){
         $selectedValues->competition = $_GET['competition'];
+        $matchList = MatchConverter::convertMatch(
+            SelectMatchDAO::getAllMatchesFiltered($selectedValues)
+        );
     };
     if(!empty($_GET['team'])){
         $selectedValues->team = $_GET['team'];
+        $matchList = MatchConverter::convertMatch(
+            SelectMatchDAO::getAllMatchesFiltered($selectedValues)
+        );
     };
-    $matchList = MatchConverter::convertMatch(
-        SelectMatchDAO::getAllMatchesFiltered($selectedValues)
-    );
     if(!empty($_GET['sortBy'])){
         $sortBy = $_GET['sortBy'];
         if($sortBy == "desc"){

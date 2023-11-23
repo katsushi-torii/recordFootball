@@ -36,21 +36,39 @@
             <section class="filter">
                 <article>
                     <button class="close">✖</button>
-                    <form method="GET">
-                        <aside>
-                            <label for="star">評価：</label>
-                            <select name="star" id="star">
-                                <option selected disabled>下記から選択</option>
-                                <option value="9">0</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                            </select>
-                        </aside>
             ';
             return $htmlFilterHead;
+        }
+
+        static function filterSearch(){
+            $htmlSearch = '    
+            <form method="GET" class="keywordForm">
+                <aside>
+                    <input type="text" name="keyword" class="keyword" placeholder="キーワード検索">
+                    <input type="submit" class="keywordSubmit" value="検索">
+                </aside>
+            </form>
+            ';
+            return $htmlSearch;
+        }
+
+        static function filterStar(){
+            $htmlStar = '
+            <form method="GET">
+                <aside>
+                    <label for="star">評価：</label>
+                    <select name="star" id="star">
+                        <option selected disabled>下記から選択</option>
+                        <option value="9">0</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+                </aside>
+            ';
+            return $htmlStar;
         }
 
         static function filterCompetition($competitionArray){
